@@ -1,7 +1,5 @@
 import { Usuario } from '../models/usuario';
 import { usuarios } from '../data/usuario';
-import { resolve } from 'node:dns';
-import { rejects } from 'node:assert';
 
 export function buscarUsuario (id: number): Promise<Usuario> {
     return new Promise ((resolve, reject) => {
@@ -18,3 +16,16 @@ export function buscarUsuario (id: number): Promise<Usuario> {
         }, 2000); 
     });
 };
+
+export async function mostrarUsuario () {
+    try {
+    const usuario = await buscarUsuario(2);
+
+    console.log("Usuario encontrado:");
+    console.log(usuario);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+mostrarUsuario();
