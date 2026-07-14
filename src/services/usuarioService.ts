@@ -29,3 +29,17 @@ export async function mostrarUsuario () {
 }
 
 mostrarUsuario();
+
+
+export function buscarPorNombre (nombre: string): Promise<Usuario> {
+    return new Promise ((resolve, reject) => {
+        
+        const nombres = usuarios.find((u) => u.nombre === nombre);
+
+        if (nombres) {
+            resolve(nombres);
+        } else {
+            reject("Usuario no encontrado");
+        }
+    });
+};
