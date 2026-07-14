@@ -1,3 +1,3 @@
-import { contadorUsuario } from "./services/usuarioService";
+import { menu } from "./menu/menu";
 
-console.log();
+menu();
