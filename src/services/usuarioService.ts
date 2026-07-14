@@ -28,8 +28,6 @@ export async function mostrarUsuario () {
     }
 }
 
-mostrarUsuario();
-
 
 export function buscarPorNombre (nombre: string): Promise<Usuario> {
     return new Promise ((resolve, reject) => {
@@ -56,4 +54,9 @@ export function mostrarTodos(): Promise<Usuario[]> {
             }
         }, 3000);
     });
+};
+
+
+export function mayor (): Usuario[] {
+    return usuarios.filter((usuario) => usuario.edad > 21);
 };
