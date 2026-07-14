@@ -4,6 +4,8 @@ import { usuarios } from '../data/usuario';
 export function buscarUsuario (id: number): Promise<Usuario> {
     return new Promise ((resolve, reject) => {
 
+        console.log("Buscando usuario...");
+
         setTimeout (() => {
 
             const usuario = usuarios.find((u) => u.id === id);
@@ -17,12 +19,12 @@ export function buscarUsuario (id: number): Promise<Usuario> {
     });
 };
 
-export async function mostrarUsuario () {
+export async function mostrarUsuario (id: number) {
     try {
-    const usuario = await buscarUsuario(2);
+    const usuario = await buscarUsuario(id);
 
     console.log("Usuario encontrado:");
-    console.log(usuario);
+    console.table(usuario);
     } catch (error) {
         console.log(error);
     }
@@ -45,9 +47,10 @@ export function buscarPorNombre (nombre: string): Promise<Usuario> {
 
 export function mostrarTodos(): Promise<Usuario[]> {
     return new Promise ((resolve, reject) => {
-        setTimeout (() => {
 
+        setTimeout (() => {
             if (usuarios.length > 0) {
+                console.log("Usuarios encontrados:");
                 resolve(usuarios);
             } else {
                 reject("Arreglo no encontrado");
