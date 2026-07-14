@@ -43,3 +43,17 @@ export function buscarPorNombre (nombre: string): Promise<Usuario> {
         }
     });
 };
+
+
+export function mostrarTodos(): Promise<Usuario[]> {
+    return new Promise ((resolve, reject) => {
+        setTimeout (() => {
+
+            if (usuarios.length > 0) {
+                resolve(usuarios);
+            } else {
+                reject("Arreglo no encontrado");
+            }
+        }, 3000);
+    });
+};
