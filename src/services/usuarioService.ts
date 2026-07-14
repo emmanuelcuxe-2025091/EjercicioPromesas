@@ -60,3 +60,8 @@ export function mostrarTodos(): Promise<Usuario[]> {
 export function mayor (): Usuario[] {
     return usuarios.filter((usuario) => usuario.edad > 21);
 };
+
+
+export function contadorUsuario(): number {
+    return usuarios.length;
+};
